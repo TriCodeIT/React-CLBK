@@ -1,29 +1,33 @@
-import React from 'react'
-import {Table} from 'react-bootstrap'
+import React from "react";
+import { Table } from "react-bootstrap";
 
-const Tabel = () => {
+const Tabel = ({makanans}) => {
   return (
     <Table striped bordered hover>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Nama Makanan</th>
-        <th>Deskripi</th>
-        <th>Harga</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </Table>
-  )
-}
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nama Makanan</th>
+          <th>Deskripi</th>
+          <th>Harga</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {makanans.map((makanan, index) => {
+          return (
+            <tr>
+              <td>{index+1}</td>
+              <td>{makanan.nama}</td>
+              <td>{makanan.deskripsi}</td>
+              <td>Rp. {makanan.harga}</td>
+              <td></td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </Table>
+  );
+};
 
-export default Tabel
+export default Tabel;
